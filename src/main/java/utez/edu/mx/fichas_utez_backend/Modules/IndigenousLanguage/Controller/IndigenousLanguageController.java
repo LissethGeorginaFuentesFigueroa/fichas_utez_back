@@ -14,7 +14,7 @@ import java.util.List;
 
 @Tag(name = "Lenguas Indígenas", description = "Operaciones relacionadas con las lenguas indígenas")
 @RestController
-@RequestMapping("/api/indigenous-languages")
+@RequestMapping("/indigenous-languages")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:3000")
 public class IndigenousLanguageController {
@@ -27,4 +27,3 @@ public class IndigenousLanguageController {
         return ResponseEntity.ok(languages);
     }
 }
-

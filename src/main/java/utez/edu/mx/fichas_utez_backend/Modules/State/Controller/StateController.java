@@ -13,7 +13,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/states")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000")
 @Tag(name = "Estados", description = "Controlador para manejar los estados")
 public class StateController {
     private final StateService service;

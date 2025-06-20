@@ -15,7 +15,7 @@ import java.util.List;
 
 @Tag(name = "Estado Civil", description = "Operaciones relacionadas con los estados civiles")
 @RestController
-@RequestMapping("/api/civil-status")
+@RequestMapping("/civil-status")
 @CrossOrigin(origins = "http://localhost:3000")
 public class CivilStatusController {
     private final CivilStatusService civilStatusService;

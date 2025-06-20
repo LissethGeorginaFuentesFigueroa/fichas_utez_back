@@ -4,8 +4,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.http.HttpStatus;
 
 import java.util.List;
+import java.util.Map;
 
 @Data
 @NoArgsConstructor
@@ -54,7 +56,6 @@ public class ResponseApi<T> {
         this.data = data;
         this.message = message;
     }
-
     // Mejoras sugeridas:
     // 1. Constructor estático para respuestas exitosas
     public static <T> ResponseApi<T> success(T data) {
@@ -74,5 +75,10 @@ public class ResponseApi<T> {
         this.errors.add(errorMsg);
         this.error = true;
         return this;
+    }
+
+    // Response created
+    public static <T> ResponseApi<T> created(T data) {
+        return new ResponseApi<>(data, HttpStatus.CREATED.value(), "Resource created successfully");
     }
 }

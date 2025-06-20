@@ -16,7 +16,7 @@ import java.util.List;
 @Tag(name = "Lengua Natal", description = "Operaciones relacionadas con las lenguas natales")
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
-@RequestMapping("/api/native-languages")
+@RequestMapping("/native-languages")
 public class NativeLanguageController {
     private final NativeLanguageService nativeLanguageService;
 
@@ -32,4 +32,3 @@ public class NativeLanguageController {
         return ResponseEntity.ok(languages);
     }
 }
-
