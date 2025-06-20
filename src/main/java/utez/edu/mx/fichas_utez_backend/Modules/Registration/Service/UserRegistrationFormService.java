@@ -72,12 +72,19 @@ public class UserRegistrationFormService {
 
     @Transactional
     public ResponseApi<?> create(UserRegistrationFormDto form) {
-
+        System.out.println(form);
         try {
             UserRegistrationForm registrationForm = new UserRegistrationForm();
             if(form.getFirstName()==null) return new ResponseApi<>(null, HttpStatus.BAD_REQUEST.value(), ErrorMessages.MISSING_NAME.toString());
             if(form.getLastName()==null) return new ResponseApi<>(null, HttpStatus.BAD_REQUEST.value(), ErrorMessages.MISSING_FIRST_LASTNAME.toString());
 
+
+            if (!nationalityRepository.existsById(form.getNationalityId())) {
+                return new ResponseApi<>(null, HttpStatus.BAD_REQUEST.value(), ErrorMessages.INVALID_NATIONALITY.toString() + " " + form.getNationalityId() );
+            }
+            if (!stateRepository.existsById(form.getBirthStateId())) {
+                return new ResponseApi<>(null, HttpStatus.BAD_REQUEST.value(), ErrorMessages.INVALID_STATE.toString() + " " + form.getBirthStateId() );
+            }
 
             registrationForm.setNationality(
                     nationalityRepository.findById(form.getNationalityId()).orElseThrow()
@@ -183,6 +190,7 @@ public class UserRegistrationFormService {
             UserRegistrationForm newRegistrationForm = repository.save(registrationForm);
             return new ResponseApi<>( newRegistrationForm, HttpStatus.CREATED.value(), "Registro creado exitosamente");
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return new ResponseApi<>(null, HttpStatus.BAD_REQUEST.value(), "Error al crear registro: " + e.getMessage());
         }
 
