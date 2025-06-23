@@ -9,7 +9,10 @@ public record AcademicCareerRequest(
         @NotNull Long careerId,
 
         @Schema(description = "ID del medio por el que se enteró", example = "2")
-        @NotNull Long sourceId,
+        Long mediaChannelId,
+
+        @Schema(description = "Otro medio de enterarse (opcional)", example = "Redes sociales")
+        String otherMediaChannel,
 
         @Schema(description = "¿La escuela es primera opción?", example = "true")
         @NotNull Boolean isFirstOption
