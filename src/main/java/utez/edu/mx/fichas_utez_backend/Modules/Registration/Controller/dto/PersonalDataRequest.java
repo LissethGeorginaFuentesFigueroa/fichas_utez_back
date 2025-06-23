@@ -43,6 +43,19 @@ public record PersonalDataRequest(
 
         @Schema(description = "Correo electrónico del solicitante", example = "usuario@dominio.com")
         @NotBlank
-        @Email(message = "Correo electrónico inválido") String email
+        @Email(message = "Correo electrónico inválido") String email,
+        
+        @Schema(description = "ID del país en done nació" , example = "1")
+        @NotNull Long countryId,
+
+        @Schema(description = "ID del estado en donde nació", example = "12")
+        @NotNull Long birthStateId,
+
+        @Schema(description = "ID del municipio en donde nació", example = "34")
+        @NotNull Long birthMunicipalityId,
+
+        @Schema(description = "Ciudad de nacimiento del solicitante", example = "Ciudad de México")
+        @NotBlank String birthCity
+
 ) {
 }

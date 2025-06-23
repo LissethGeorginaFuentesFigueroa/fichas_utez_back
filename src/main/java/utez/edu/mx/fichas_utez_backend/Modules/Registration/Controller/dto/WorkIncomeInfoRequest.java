@@ -23,7 +23,7 @@ public record WorkIncomeInfoRequest(
         String companyName,
 
         @Schema(description = "Puesto que ocupa en la empresa si aplica", example = "Desarrollador de software")
-        String jobTitle,
+        String jobPosition,
 
         @Schema(description = "Ingreso mensual en pesos mexicanos si aplica", example = "15000.00")
         @PositiveOrZero Double monthlyIncome,
@@ -32,7 +32,7 @@ public record WorkIncomeInfoRequest(
         String workSchedule,
 
         @Schema(description = "Lada telefónica de la empresa si aplica", example = "55-1234-5678")
-        String companyPhone,
+        String companyLada,
 
         @Schema(description = "Teléfono de la empresa", example = "12345678")
         @NotNull String companyPhoneNumber

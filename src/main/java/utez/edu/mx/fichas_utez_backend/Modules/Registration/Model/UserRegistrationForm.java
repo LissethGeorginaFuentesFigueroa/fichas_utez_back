@@ -14,6 +14,8 @@ import utez.edu.mx.fichas_utez_backend.Modules.MediaChannel.Model.MediaChannel;
 import utez.edu.mx.fichas_utez_backend.Modules.Municipality.Model.Municipality;
 import utez.edu.mx.fichas_utez_backend.Modules.Nationality.Model.Nationality;
 import utez.edu.mx.fichas_utez_backend.Modules.NativeLanguage.Model.NativeLanguage;
+import utez.edu.mx.fichas_utez_backend.Modules.Registration.Controller.dto.enums.EmploymentType;
+import utez.edu.mx.fichas_utez_backend.Modules.Registration.Controller.dto.enums.Gender;
 import utez.edu.mx.fichas_utez_backend.Modules.SchoolCareer.Model.SchoolCareer;
 import utez.edu.mx.fichas_utez_backend.Modules.State.Model.State;
 
@@ -31,13 +33,13 @@ public class UserRegistrationForm {
     private Long id;
 
     @Column(nullable = false)
-    private String firstName;
+    private String fullname ;
 
     @Column(nullable = false)
-    private String lastName;
+    private String firstSurname;
 
     @Column(nullable = false)
-    private String motherLastName;
+    private String secondSurname;
 
     @Column(nullable = false)
     private String curp;
@@ -46,7 +48,7 @@ public class UserRegistrationForm {
     private LocalDate birthDate;
 
     @Column(nullable = false)
-    private String gender;
+    private Gender gender;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "nationality_id")
@@ -56,9 +58,9 @@ public class UserRegistrationForm {
     @JoinColumn(name = "birth_state_id")
     private State birthState;
 
-    @ManyToOne(optional = false)
+/*    @ManyToOne(optional = false)
     @JoinColumn(name = "birth_municipality_id")
-    private Municipality birthMunicipality;
+    private Municipality birthMunicipality;*/
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "birth_country_id")
@@ -107,18 +109,16 @@ public class UserRegistrationForm {
     @Column(nullable = false)
     private String postalCode;
 
-    @Column(nullable = true)
     private String email;
 
-    @Column(nullable = false)
-    private String lada;
+//    private String lada;
 
     @Column
     private String homePhone;
 
-    @Column(nullable = false)
+   /* @Column(nullable = false)
     private String mobilePhone;
-
+*/
     @Column
     private Double familyMonthlyIncome;
 
@@ -126,7 +126,7 @@ public class UserRegistrationForm {
     private Boolean works;
 
     @Column
-    private String workType;
+    private EmploymentType workType;
 
     @Column
     private String workLada;
@@ -155,10 +155,7 @@ public class UserRegistrationForm {
     private String otherMediaChannel;
 
     @Column
-    private String utezOption;
-
-    @Column
-    private String otherUtezOption;
+    private Boolean utezFirstOption;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "high_school_type_id")
@@ -206,19 +203,23 @@ public class UserRegistrationForm {
     )
     private List<Disability> disabilities;
 
-    @ManyToOne(optional = false)
+  /*  @ManyToOne(optional = false)
     @JoinColumn(name = "high_school_id")
-    private HighSchool highSchool;
+    private HighSchool highSchool;*/
+/*
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "school_career_id")
     private SchoolCareer schoolCareer;
+*/
 
-    @Column(nullable = false)
-    private String phone;
+ /*   @Column(nullable = false)
+    private String phone;*/
 
-    @Column(nullable = false)
-    private String address;
+//    private String address;
+
+    @Column
+    private String workSchedule;
 
     @ManyToMany
     @JoinTable(

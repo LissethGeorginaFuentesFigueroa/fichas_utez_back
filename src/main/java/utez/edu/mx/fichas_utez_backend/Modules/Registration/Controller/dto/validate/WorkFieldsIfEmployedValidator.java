@@ -11,10 +11,10 @@ public class WorkFieldsIfEmployedValidator implements ConstraintValidator<ValidW
         if (Boolean.TRUE.equals(value.isCurrentlyEmployed())) {
             boolean valid = value.employmentType() != null
                     && value.companyName() != null && !value.companyName().isBlank()
-                    && value.jobTitle() != null && !value.jobTitle().isBlank()
+                    && value.jobPosition() != null && !value.jobPosition().isBlank()
                     && value.monthlyIncome() != null
                     && value.workSchedule() != null && !value.workSchedule().isBlank()
-                    && value.companyPhone() != null && !value.companyPhone().isBlank()
+                    && value.companyLada() != null && !value.companyLada().isBlank()
                     && value.companyPhoneNumber() != null && !value.companyPhoneNumber().isBlank();
             if (!valid) {
                 context.disableDefaultConstraintViolation();

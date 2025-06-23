@@ -5,8 +5,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
-@Schema(name = "AddressRequest", description = "Domicilio del solicitante")
-public record AddressRequest(
+@Schema(name = "AddressUserRequest", description = "Domicilio del solicitante")
+public record AddressUserRequest(
     @Schema(description = "Calle del domicilio", example = "Av. Reforma")
     @NotBlank String street,
 

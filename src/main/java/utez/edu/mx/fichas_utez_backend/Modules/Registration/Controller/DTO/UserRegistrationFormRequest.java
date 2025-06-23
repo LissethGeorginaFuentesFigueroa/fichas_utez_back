@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 
 public record UserRegistrationFormRequest(
         @NotNull @Valid PersonalDataRequest personalData,
-        @NotNull @Valid AddressRequest address,
+        @NotNull @Valid AddressUserRequest address,
         @NotNull @Valid ComplementaryInfoRequest complementaryInfo,
         @NotNull @Valid WorkIncomeInfoRequest workIncomeInfo,
         @NotNull @Valid AcademicCareerRequest academicCareer,
